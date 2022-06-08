@@ -2,12 +2,21 @@ const express = require('express');
 const app = express();
 const port = 3001;
 
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    /*res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.setHeader("Access-Control-Allow-Methods", "POST, GET");
+    res.setHeader("Access-Control-Max-Age", "3600");
+    res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, x-access-token, x-user-id,Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");*/
+    next();
+});
+
 app.get('/', (req, res) => {
     res.send('Hello Express!');
 });
 
 app.get('/api', (req, res) => {
-    res.json({ message: 'Hello World!' });
+    res.json({ message: 'こちら、バックエンド側からのメッセージです。' });
 });
 
 app.listen(port, () => {
