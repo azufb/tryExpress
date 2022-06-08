@@ -6,10 +6,10 @@ app.get('/', (req, res) => {
     res.send('Hello Express!');
 });
 
-app.listen(port, () => {
-    console.log(`Example app listening an port ${port}`);
+app.get('/api', (req, res) => {
+    res.json({ message: 'Hello World!' });
 });
 
-app.get('/sample1', (req, res) => {
-    res.send('Sample1!');
+app.listen(port, () => {
+    console.log(`Example app listening an port ${port}`);
 });
