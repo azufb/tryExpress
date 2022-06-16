@@ -8,7 +8,7 @@ const config = mysql.createConnection({
     host: process.env.host,
     user: process.env.user,
     password: process.env.password,
-    database: 'sample_database'
+    database: process.env.database
 });
 
 config.connect();
