@@ -4,7 +4,7 @@ import axios from 'axios';
 const SignInForm = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = async (data) => {
-        await axios.post('http://localhost:3001/signIn', data).then(res => console.log('response:', res.config.data));
+        await axios.post('http://localhost:3001/signIn', data).then(res => console.log('response:', res.data.response));
     }
 
     return (
