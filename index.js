@@ -50,9 +50,15 @@ app.post('/signIn', (req, res) => {
     const password = req.body.password;
     const data = [email, password];
     const sql = 'SELECT * FROM users WHERE email = ? AND password = ?';
-    config.query(sql, data, (err, results) => {
+    config.query(sql, data, (err, rows, results) => {
         if(err) throw err;
-        res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+
+        if (rows.length === 0) {
+            res.send(JSON.stringify({"status": 503, "error": null, "response": 'サインイン失敗...。'}));
+        } else {
+            res.send(JSON.stringify({"status": 200, "error": null, "response": 'サインイン成功！'}));
+        }
+
     });
 });
 
