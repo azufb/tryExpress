@@ -2,6 +2,7 @@ import './App.css';
 import axios from 'axios';
 import { useState } from 'react';
 import UserForm from './components/UserForm';
+import SignInForm from './components/SignInForm';
 
 function App() {
   const [message, setMessage] = useState('');
@@ -19,6 +20,7 @@ function App() {
       <h1>フロント側だよ〜。React使ってま〜す。</h1>
       <h2>message: {message}</h2>
       <UserForm />
+      <SignInForm />
     </div>
   );
 }
