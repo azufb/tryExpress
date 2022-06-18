@@ -45,6 +45,17 @@ app.post('/user', (req, res) => {
     });
 });
 
+app.post('/signIn', (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+    const data = [email, password];
+    const sql = 'SELECT * FROM users WHERE email = ? AND password = ?';
+    config.query(sql, data, (err, results) => {
+        if(err) throw err;
+        res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+    });
+});
+
 app.listen(port, () => {
     console.log(`Example app listening an port ${port}`);
 });
