@@ -7,4 +7,4 @@ COPY . .
 EXPOSE 3001
 RUN chown -R node /usr/src/app
 USER node
-CMD sleep 1; nodemon index.js
+CMD sleep 1; node index.js
